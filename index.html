@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pythagorean tunning</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<link href="style.css" rel="stylesheet" />
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="freeze"></div>
+
+    <div class="mt-5 container bg-image p-5 shadow-1-strong rounded mb-5 text-black" style="background-image: url('bg.jpg');">
+        <h1 class="text-center p-5">Pythagorean tuning</h1>
+        <p class="text-center">Scale generator based on Pythagorean tuning.</p>
+           
+        <div class="row" >
+            <div class="col-md-3 mb-3">   
+                <p style="height: 80px;">Beep a sound of 440 hz. This is a basic tone of all curent tuning.</p>       
+    <button type="button" class="btn btn-primary" onclick="test1()">Beep 440 hz</button>
+    </div>
+    <div class="col-md-3">
+        <p style="height: 80px;">Create and play all of tones from C Major scale. </p> 
+        <button type="button" class="btn btn-primary" onclick='rootTone(); Freeze()'>Create C maj scale!</button>
+    </div>
+    <div class="col-md-3"> 
+        <p style="height: 80px;">This will generate a scale, which is a perfect fifth higer than an actual scale.</p>             
+        
+            <button type="button" class="btn btn-primary" onclick='semiTone(6); Freeze()'>Perfect fifth step</button>
+            </div><div class="col-md-3"> 
+                <p style="height: 80px;">This will generate a scale, which is a perfect forth lower than an actual scale.</p>             
+         
+            <button type="button" class="btn btn-primary" onclick='perfectForth(6); Freeze()'>Perfect forth step</button>
+   </div>
+        </div>
+   <div class="scales">
+    <script src="script.js"></script>
+   </div> 
+</div>
+</section>
+
+</body>
+<script src="control.js"></script>
+
+</html>
