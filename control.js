@@ -1,6 +1,6 @@
 function Freeze() {
     const newElement = document.createElement('div');
-    newElement.textContent = 'Sound is playing right now.';
+    newElement.textContent = 'Generating...';
     newElement.classList.add('show'); // Přidání třídy pro zobrazený obsah
   
     const header = document.getElementById('freeze');

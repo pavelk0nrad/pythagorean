@@ -1,48 +1,54 @@
-
-var rest = 0.2
+var rest = 0.2;
 var audioContext = null;
 var oscillatorNode = null;
+var gainNode = null;
 var stopTime = 0;
-//sound engine
-function beep (frequency, durationSec, ramp=false)
-{
+
+// Sound engine
+function beep(frequency, durationSec, ramp = false) {
     if (oscillatorNode == null) {
-        audioContext = new (window.AudioContext || window.webkitAudioContext) ();
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
         stopTime = audioContext.currentTime;
 
         oscillatorNode = audioContext.createOscillator();
         oscillatorNode.type = "sine";
-        oscillatorNode.connect (audioContext.destination);
+
+        gainNode = audioContext.createGain();
+        gainNode.gain.value = rest;
+
+        oscillatorNode.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
         if (ramp) {
-            oscillatorNode.frequency.setValueAtTime (frequency, stopTime);
+            oscillatorNode.frequency.setValueAtTime(frequency, stopTime);
         }
-        oscillatorNode.start ();
+
+        oscillatorNode.start();
         oscillatorNode.onended = function() {
             oscillatorNode = null;
+            gainNode = null;
             audioContext = null;
-        }
+        };
     }
 
     if (ramp) {
-        oscillatorNode.frequency.linearRampToValueAtTime (frequency, stopTime); // value in hertz
+        oscillatorNode.frequency.linearRampToValueAtTime(frequency, stopTime);
     } else {
-        oscillatorNode.frequency.setValueAtTime (frequency, stopTime);  // value in hertz
+        oscillatorNode.frequency.setValueAtTime(frequency, stopTime);
     }
 
     stopTime += durationSec;
-    oscillatorNode.stop (stopTime);
+    oscillatorNode.stop(stopTime);
 }
-function test1()
-{
-        beep (440, 0.5);
-        
+
+function test1() {
+    beep(440, 0.5);
 }
-    
-function test2()
-{
-        beep (50, 2, true);
-        beep (5000, 2, true);
-        beep (50, 0, true);
+
+function test2() {
+    beep(50, 2, true);
+    beep(5000, 2, true);
+    beep(50, 0, true);
 }
 //end of sound engine
 
@@ -128,17 +134,23 @@ let scale2 =
         [tone, (frequency * (2 / 1)).toFixed(1)]]
 
 table = document.createElement("table")
+table.setAttribute('class', 'table table-dark table-hover table-scale');
+const divElement = document.getElementById('scales');
+divElement.setAttribute('class', 'scales');
 
-const divElement = document.createElement('div');
 divElement.appendChild(table);
 divElement.setAttribute('class', 'container p-3 mb-2 bg-dark text-white');
+
 document.body.appendChild(divElement)
 
 
-    let builderOfScale = []
+   
+    let tbody = document.createElement("tbody")
+    table.appendChild(tbody);
     let counterOfTone = 0
     let tr = document.createElement("tr")
-        table.appendChild(tr)
+        tbody.appendChild(tr)
+        
     
     
     while (counterOfTone < 8){
@@ -160,29 +172,31 @@ document.body.appendChild(divElement)
         positionOfTone -= 1
         counterOfTone += 1
    let td = document.createElement("td")
-   table.appendChild(td)
+   tr.appendChild(td)
+   
    td.textContent = (scale[positionOfTone])
 
         }
     else{
        
         let td = document.createElement("td")
-        table.appendChild(td)
+        tr.appendChild(td)
         td.textContent = (scale[positionOfTone])
         counterOfTone +=1
         positionOfTone +=2
         }
     
     }
-   
-        table.appendChild(tr)
+        let tr2 = document.createElement("tr");
+        tbody.appendChild(tr2)
        
         for (let i in scale2){
        
     
 
    let td = document.createElement("td")
-   table.appendChild(td)
+   tr2.appendChild(td)
+   
    td.textContent = scale2[i][1]
    beep(scale2[i][1], rest)
    console.log(positionOfTone)
