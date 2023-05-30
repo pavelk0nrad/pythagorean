@@ -22,10 +22,10 @@
 <body>
     <div class="nav-bar">
         <button type="button" class="btn btn-dark btn-circle btn-controller " onclick="test1()">440 hz </button>          
-        <button type="button" class="btn btn-dark btn-circle btn-controller" onclick='perfectForth(6); Freeze()'><span class="material-symbols-outlined controller">arrow_circle_down</span><span class="material-symbols-outlined controller">counter_4</span></button>
+        <button id="btn-controller" type="button" class="btn btn-dark btn-circle btn-controller" style="display: none;" onclick='perfectForth(6); Freeze()'><span class="material-symbols-outlined controller">arrow_circle_down</span><span class="material-symbols-outlined controller">counter_4</span></button>
 
-        <button type="button" class="btn btn-dark btn-circle btn-controller" onclick="rootTone(); Freeze()">Root</button>
-                <button type="button" class="btn btn-dark btn-circle btn-controller" onclick="semiTone(6); Freeze()">  <span class="material-symbols-outlined controller">arrow_circle_up</span><span class="material-symbols-outlined controller">counter_5</span></button>
+        <button type="button" class="btn btn-dark btn-circle btn-controller" onclick="rootTone(); Freeze()">C maj</button>
+        <button id="btn-controller2" type="button" class="btn btn-dark btn-circle btn-controller" style="display: none;" onclick="semiTone(6); Freeze()"><span class="material-symbols-outlined controller">arrow_circle_up</span><span class="material-symbols-outlined controller">counter_5</span></button>
         <button type="button" class="btn btn-dark btn-circle btn-controller" onclick='location.reload()'><span class="material-symbols-outlined controller">delete_forever</span></button>
     </div> 
     <div id="freeze"></div>
@@ -33,7 +33,7 @@
         <div class="offcanvas offcanvas-start" id="demo">
             <div class="offcanvas-header">
               <h1 class="offcanvas-title">Controller</h1>
-              <button type="button" class="btn-close btn-lg" data-bs-dismiss="offcanvas"></button>
+              <button type="button" class="btn text-light" data-bs-dismiss="offcanvas"><span class="material-symbols-outlined controller">close</span></button>
             </div>
             <div class="contol">
                 <span class="material-symbols-outlined controller">arrow_circle_up</span>

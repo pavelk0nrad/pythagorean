@@ -1,3 +1,12 @@
+// Získání odkazu na tlačítko
+var btn_controller = document.getElementById("btn-controller");
+var btn_controller2 = document.getElementById("btn-controller2");
+let controller = false
+// Nastavení podmínky
+// Příklad podmínky, můžete ji upravit podle vašich potřeb
+
+// Podmíněné zobrazení tlačítka
+
 var rest = 0.2;
 var audioContext = null;
 var oscillatorNode = null;
@@ -117,9 +126,9 @@ function rootTone (){
     userInput = root
     positionOfTone = 0
     
-    return createScaleN(userInput)
-            
+    return createScaleN(userInput)          
 }
+
 function createScaleN (frequency){
 
 
@@ -201,6 +210,23 @@ document.body.appendChild(divElement)
    beep(scale2[i][1], rest)
    console.log(positionOfTone)
     }
-    let isRoot = true
-return isRoot
+function isRoot() {
+    controller = true
+    console.log(controller)
 }
+
+
+if (isRoot() == true){
+    btn_controller.style.display = "hidden"
+} else {
+    btn_controller.style.display = "flex"
+    btn_controller2.style.display = "flex"
+    console.log("neni")
+}
+
+
+return isRoot()
+}
+
+
+

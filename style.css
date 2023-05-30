@@ -52,8 +52,8 @@ table, table td {
 .btn-circle {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  transition: 0.4s ease;
+  border-radius: 10%;
+  transition: 0.2s ease;
   display: flex;
   position: relative;
   justify-content: center;
@@ -63,9 +63,9 @@ table, table td {
 }
 .btn-circle:hover{
   box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
-  transition: 0.5s;
+  transition: 0.2s;
   border: solid white;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 .btn-circle:focus{
   box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
@@ -107,6 +107,7 @@ table, table td {
 #freeze {
     font-size: 5rem;   
 }
+
 
 .show {
     transition: opacity 1s ease-out;
